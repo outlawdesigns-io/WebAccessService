@@ -99,10 +99,11 @@ class EndPoint extends API{
       }else{
         throw new \Exception(self::REQERR);
       }
+      return $data;
     }
     protected function _parseVerb(){
       $data = null;
-      $key = ucwords($this->endPoint);
+      $key = ucwords($this->endpoint);
       if(strtolower($this->verb) == 'search'){
         $data = $key::search($this->args[0],$this->args[1]);
       }else{
