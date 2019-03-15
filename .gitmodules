@@ -1,0 +1,6 @@
+[submodule "Api"]
+	path = Api
+	url = https://github.com/outlawdesigns-io/Api
+[submodule "AccessLogParser"]
+	path = AccessLogParser
+	url = https://github.com/outlawdesigns-io/AccessLogParser
