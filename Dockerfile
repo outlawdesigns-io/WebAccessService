@@ -1,5 +1,7 @@
 FROM ulsmith/rpi-raspbian-apache-php
 ADD ./ /var/www/html
+RUN apt-get update
+RUN install cron -y
 RUN chmod -R 0755 /var/www/html
 RUN rm /var/www/html/index.html
 RUN chmod +x /var/www/html/setup.sh
