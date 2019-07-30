@@ -4,6 +4,7 @@ require_once __DIR__ . '/Api/Api.php';
 require_once __DIR__ . '/AccessLogParser/Models/Host.php';
 require_once __DIR__ . '/AccessLogParser/Models/Request.php';
 
+
 class EndPoint extends API{
 
     const ACCOUNTS = 'http://api.outlawdesigns.io:9661/';
@@ -106,6 +107,10 @@ class EndPoint extends API{
       $key = ucwords($this->endpoint);
       if(strtolower($this->verb) == 'search'){
         $data = $key::search($this->args[0],$this->args[1]);
+      }elseif(strtolower($this->verb) == 'daily'){
+        $data = $key::dailyCount($this->args[0]);
+      }elseif(strtolower($this->verb) == 'songs'){
+        $data = $key::SongCounts();
       }else{
         throw new \Exception('Invalid Verb.');
       }
