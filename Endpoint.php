@@ -128,9 +128,9 @@ class EndPoint extends API{
       }elseif(strtolower($this->verb) == 'songs'){
         $data = $key::SongCounts();
       }elseif(strtolower($this->verb) == 'count'){
-        $data = $key::total();
+        $data = $key::count();
       }elseif(strtolower($this->verb) == 'group'){
-        $data = $key::getCountOf($this->args[0]);
+        $data = $key::countOf($this->args[0]);
       }else{
         throw new \Exception('Invalid Verb.');
       }
