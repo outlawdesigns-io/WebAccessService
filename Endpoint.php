@@ -2,6 +2,7 @@
 
 require_once __DIR__ . '/Api/Api.php';
 require_once __DIR__ . '/AccessLogParser/Models/Host.php';
+require_once __DIR__ . '/AccessLogParser/Models/Client.php';
 require_once __DIR__ . '/AccessLogParser/Models/Request.php';
 
 
@@ -75,7 +76,7 @@ class EndPoint extends API{
         $data->setFields($this->request)->create();
       }elseif(!isset($this->verb) && !isset($this->args[0]) && $this->method == 'GET'){ //get all
         $data = Host::getAll();
-      }elseif(!isset($this->verb) &&(int)$this->args[0] && $this->method == 'GET'){ //get a movie by id
+      }elseif(!isset($this->verb) &&(int)$this->args[0] && $this->method == 'GET'){ //get by id
         $data = new Host($this->args[0]);
       }elseif((int)$this->args[0] && $this->method == 'PUT'){ //update by id
         $data = new Host($this->args[0]);
@@ -102,6 +103,21 @@ class EndPoint extends API{
       }
       return $data;
     }
+    protected function client(){
+      $data = null;
+      if($this->method != 'GET'){
+        throw new \Exception(self::GETERR);
+      }elseif(!isset($this->verb) && !isset($this->args[0])){
+        $data = Client::getAll();
+      }elseif(!isset($this->verb) && (int)$this->args[0]){
+        $data = new Client($this->args[0]);
+      }elseif(isset($this->verb)){
+        $data = $this->_parseVerb();
+      }else{
+        throw new \Exception(self::REQERR);
+      }
+      return $data;
+    }
     protected function _parseVerb(){
       $data = null;
       $key = ucwords($this->endpoint);
@@ -111,9 +127,16 @@ class EndPoint extends API{
         $data = $key::dailyCount($this->args[0]);
       }elseif(strtolower($this->verb) == 'songs'){
         $data = $key::SongCounts();
+      }elseif(strtolower($this->verb) == 'count'){
+        $data = $key::total();
+      }elseif(strtolower($this->verb) == 'group'){
+        $data = $key::getCountOf($this->args[0]);
       }else{
         throw new \Exception('Invalid Verb.');
       }
       return $data;
+    }
+    protected function _parseCountRequest(){
+      switch(strtolower($this->endPoint)){}
     }
 }
