@@ -136,7 +136,4 @@ class EndPoint extends API{
       }
       return $data;
     }
-    protected function _parseCountRequest(){
-      switch(strtolower($this->endPoint)){}
-    }
 }
