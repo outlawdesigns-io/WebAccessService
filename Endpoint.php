@@ -119,7 +119,7 @@ class EndPoint extends API{
       }
       return $data;
     }
-    protected function log(){
+    protected function logMonitorRun(){
       $data = null;
       if($this->method != 'GET'){
         throw new \Exception(self::GETERR);
