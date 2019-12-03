@@ -128,7 +128,7 @@ class EndPoint extends API{
       }elseif(!isset($this->verb) && (int)$this->args[0]){
         $data = new LogMonitorRun($this->args[0]);
       }elseif(isset($this->verb)){
-        $this->_parseVerb();
+        $data = $this->_parseVerb();
       }else{
         throw new \Exception(self::REQERR);
       }
