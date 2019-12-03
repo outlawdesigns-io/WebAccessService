@@ -4,6 +4,7 @@ require_once __DIR__ . '/Api/Api.php';
 require_once __DIR__ . '/AccessLogParser/Models/Host.php';
 require_once __DIR__ . '/AccessLogParser/Models/Client.php';
 require_once __DIR__ . '/AccessLogParser/Models/Request.php';
+require_once __DIR__ . '/AccessLogParser/Models/LogMonitorRun.php';
 
 
 class EndPoint extends API{
@@ -118,6 +119,21 @@ class EndPoint extends API{
       }
       return $data;
     }
+    protected function log(){
+      $data = null;
+      if($this->method != 'GET'){
+        throw new \Exception(self::GETERR);
+      }elseif(!isset($this->verb) && !isset($this->args[0])){
+        $data = LogMonitorRun::getAll();
+      }elseif(!isset($this->verb) && (int)$this->args[0]){
+        $data = new LogMonitorRun($this->args[0]);
+      }elseif(isset($this->verb)){
+        $this->_parseVerb();
+      }else{
+        throw new \Exception(self::REQERR);
+      }
+      return $data;
+    }
     protected function _parseVerb(){
       $data = null;
       $key = ucwords($this->endpoint);
@@ -131,6 +147,8 @@ class EndPoint extends API{
         $data = $key::count();
       }elseif(strtolower($this->verb) == 'group'){
         $data = $key::countOf($this->args[0]);
+      }elseif(strtolower($this->verb) == 'recent'){
+        $data = $key::recent($this->args[0]);
       }else{
         throw new \Exception('Invalid Verb.');
       }
