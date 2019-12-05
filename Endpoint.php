@@ -143,6 +143,8 @@ class EndPoint extends API{
         $data = $key::dailyCount($this->args[0]);
       }elseif(strtolower($this->verb) == 'songs'){
         $data = $key::SongCounts();
+      }elseif(strtolower($this->verb) == 'movies' || strtolower($this->verb) == 'tv'){
+        $data = $key::videoCounts(ucwords($this->verb));
       }elseif(strtolower($this->verb) == 'count'){
         $data = $key::count();
       }elseif(strtolower($this->verb) == 'group'){
