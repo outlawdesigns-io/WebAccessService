@@ -9,7 +9,7 @@ require_once __DIR__ . '/AccessLogParser/Models/LogMonitorRun.php';
 
 class EndPoint extends API{
 
-    const ACCOUNTS = 'http://api.outlawdesigns.io:9661/';
+    const ACCOUNTS = 'https://api.outlawdesigns.io:9661/';
     const GETERR = 'Can only GET this endpoint';
     const POSTERR = 'Can only POST this endpoint';
     const REQERR = 'Malformed Request.';
