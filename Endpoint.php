@@ -1,10 +1,10 @@
 <?php
 
-require_once __DIR__ . '/Api/Api.php';
-require_once __DIR__ . '/AccessLogParser/Models/Host.php';
-require_once __DIR__ . '/AccessLogParser/Models/Client.php';
-require_once __DIR__ . '/AccessLogParser/Models/Request.php';
-require_once __DIR__ . '/AccessLogParser/Models/LogMonitorRun.php';
+require_once __DIR__ . '/Libs/Api/Api.php';
+require_once __DIR__ . '/Libs/AccessLogParser/Models/Host.php';
+require_once __DIR__ . '/Libs/AccessLogParser/Models/Client.php';
+require_once __DIR__ . '/Libs/AccessLogParser/Models/Request.php';
+require_once __DIR__ . '/Libs/AccessLogParser/Models/LogMonitorRun.php';
 
 
 class EndPoint extends API{

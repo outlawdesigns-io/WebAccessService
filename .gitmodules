@@ -1,6 +1,9 @@
-[submodule "Api"]
-	path = Api
+[submodule "Libs/Api"]
+	path = Libs/Api
 	url = https://github.com/outlawdesigns-io/Api
-[submodule "AccessLogParser"]
-	path = AccessLogParser
+[submodule "Libs/AccessLogParser"]
+	path = Libs/AccessLogParser
 	url = https://github.com/outlawdesigns-io/AccessLogParser
+[submodule "Libs/ContainerSetup"]
+	path = Libs/ContainerSetup
+	url = https://gist.github.com/outlawstar4761/3243b7bcdcd2aa051e85338c403ac0cd
