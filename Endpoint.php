@@ -138,7 +138,11 @@ class EndPoint extends API{
       $data = null;
       $key = ucwords($this->endpoint);
       if(strtolower($this->verb) == 'search'){
-        $data = $key::search($this->args[0],$this->args[1]);
+        if($key == 'Request'){
+          $data = $this->_requestSearch();
+        }else{
+          $data = $key::search($this->args[0],$this->args[1]);
+        }
       }elseif(strtolower($this->verb) == 'daily'){
         $data = $key::dailyCount($this->args[0]);
       }elseif(strtolower($this->verb) == 'extension'){
@@ -151,6 +155,16 @@ class EndPoint extends API{
         $data = $key::recent($this->args[0]);
       }else{
         throw new \Exception('Invalid Verb.');
+      }
+      return $data;
+    }
+    protected function _requestSearch(){
+      $data = null;
+      $key = ucwords($this->endpoint);
+      if(isset($this->args[2])){
+        $data = $key::dateConstrainedSearch($this->args[0],$this->args[1],">",$this->args[2]);
+      }else{
+        $data = $key::search($this->args[0],$this->args[1]);
       }
       return $data;
     }
