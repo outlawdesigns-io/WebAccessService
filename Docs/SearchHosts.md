@@ -1,10 +1,10 @@
-**Get Request**
+**Search Hosts**
 ----
-  Returns json data about a single Request.
+  Returns json array of Hosts matching given search parameters.
 
 * **URL**
 
-  /request/:UID
+  /host/search/:key/:value
 
 * **Method:**
 
@@ -14,7 +14,8 @@
 
    **Required:**
 
-   `UID=[integer]`
+   `key=[string] -- The field to search on`
+   `value=[integer,boolean,string,date] -- The value to search by`
 
 * **Data Params**
 
@@ -25,32 +26,28 @@
   * **Code:** 200 <br />
     **Content:**
     ```
-    {
-        "id": "53129",
-        "host": "api.outlawdesigns.io",
-        "port": "9661",
-        "ip_address": "192.168.1.254",
-        "platform": "NA",
-        "browser": "-",
-        "version": "NA",
-        "responseCode": "200",
-        "requestDate": "2019-03-21 03:02:18",
-        "requestMethod": "GET",
-        "query": "/verify/",
-        "referrer": "NA"
-    }
+    [
+      {
+        "id": "12",
+        "label": "outlawdesigns.io",
+        "friendlyLabel": "Web Site (SSL)",
+        "port": "443",
+        "log_path": "/var/log/apache2/default.access.log"
+      },
+    ....]    
     ```
+
 * **Error Response:**
 
   * **Code:** 200 <br />
-    **Content:** `{ error : "Invalid UID" }`
+    **Content:** `{ error : "Unknown column 'garbage' in 'where clause'" }`
 
   OR
 
   * **Code:** 200 <br />
     **Content:** `{ error : "Access Denied. No Token Present." }`
 
-   OR
+    OR
 
     * **Code:** 200 <br />
       **Content:** `{ error : "Access Denied. Invalid Token." }`
@@ -59,7 +56,7 @@
 
   ```javascript
     $.ajax({
-      url: "/request/53129",
+      url: "/host/search/port/443",
       dataType: "json",
       type : "GET",
       success : function(r) {

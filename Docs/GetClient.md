@@ -1,10 +1,10 @@
-**Get Request**
+**Get Client**
 ----
-  Returns json data about a single Request.
+  Returns json data about a single Client.
 
 * **URL**
 
-  /request/:UID
+  /client/:UID
 
 * **Method:**
 
@@ -26,18 +26,21 @@
     **Content:**
     ```
     {
-        "id": "53129",
-        "host": "api.outlawdesigns.io",
-        "port": "9661",
-        "ip_address": "192.168.1.254",
-        "platform": "NA",
-        "browser": "-",
-        "version": "NA",
-        "responseCode": "200",
-        "requestDate": "2019-03-21 03:02:18",
-        "requestMethod": "GET",
-        "query": "/verify/",
-        "referrer": "NA"
+	    "Id": "10",
+	    "IpAddress": "139.162.119.197",
+	    "StreetAddress": "AS63949 Linode, LLC",
+	    "City": "Tokyo",
+	    "Country": "Japan",
+	    "CountryCode": "JP",
+	    "Isp": "Linode, LLC",
+	    "lat": "35.68820000",
+	    "lon": "99.99999999",
+	    "Org": "Linode, LLC",
+	    "Region": "13",
+	    "RegionName": "Tokyo",
+	    "TimeZone": "Asia/Tokyo",
+	    "Zip": "102",
+	    "Malevolent": "0"
     }
     ```
 * **Error Response:**
@@ -59,7 +62,7 @@
 
   ```javascript
     $.ajax({
-      url: "/request/53129",
+      url: "/client/10",
       dataType: "json",
       type : "GET",
       success : function(r) {

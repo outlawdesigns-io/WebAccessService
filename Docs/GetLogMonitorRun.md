@@ -1,10 +1,10 @@
-**Get Request**
+**Get LogMonitorRun**
 ----
-  Returns json data about a single Request.
+  Returns json data about a single LogMonitorRun.
 
 * **URL**
 
-  /request/:UID
+  /logMonitorRun/:UID
 
 * **Method:**
 
@@ -26,19 +26,14 @@
     **Content:**
     ```
     {
-        "id": "53129",
-        "host": "api.outlawdesigns.io",
-        "port": "9661",
-        "ip_address": "192.168.1.254",
-        "platform": "NA",
-        "browser": "-",
-        "version": "NA",
-        "responseCode": "200",
-        "requestDate": "2019-03-21 03:02:18",
-        "requestMethod": "GET",
-        "query": "/verify/",
-        "referrer": "NA"
-    }
+	    "Id": "10",
+	    "StartTime": "2019-09-29 06:00:01",
+	    "EndTime": "2019-09-29 06:10:37",
+	    "RunTime": "636",
+	    "RecordsProcessed": "47",
+	    "CombinedLogSize": "8.58",
+	    "Hosts": "10"
+	}
     ```
 * **Error Response:**
 
@@ -59,7 +54,7 @@
 
   ```javascript
     $.ajax({
-      url: "/request/53129",
+      url: "/logMonitorRun/10",
       dataType: "json",
       type : "GET",
       success : function(r) {

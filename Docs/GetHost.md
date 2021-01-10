@@ -1,10 +1,10 @@
-**Get Request**
+**Get Client**
 ----
-  Returns json data about a single Request.
+  Returns json data about a single Client.
 
 * **URL**
 
-  /request/:UID
+  /client/:UID
 
 * **Method:**
 
@@ -26,18 +26,11 @@
     **Content:**
     ```
     {
-        "id": "53129",
-        "host": "api.outlawdesigns.io",
-        "port": "9661",
-        "ip_address": "192.168.1.254",
-        "platform": "NA",
-        "browser": "-",
-        "version": "NA",
-        "responseCode": "200",
-        "requestDate": "2019-03-21 03:02:18",
-        "requestMethod": "GET",
-        "query": "/verify/",
-        "referrer": "NA"
+	    "id": "10",
+	    "label": "api.outlawdesigns.io",
+	    "friendlyLabel": "Web Access Service",
+	    "port": "9500",
+	    "log_path": "/var/log/apache2/default.access.log"
     }
     ```
 * **Error Response:**
@@ -59,7 +52,7 @@
 
   ```javascript
     $.ajax({
-      url: "/request/53129",
+      url: "/host/10",
       dataType: "json",
       type : "GET",
       success : function(r) {

@@ -1,10 +1,10 @@
-**Get Request**
+**Get All Requests**
 ----
-  Returns json data about a single Request.
+  Returns json array of all Requests.
 
 * **URL**
 
-  /request/:UID
+  /request/
 
 * **Method:**
 
@@ -12,9 +12,7 @@
 
 *  **URL Params**
 
-   **Required:**
-
-   `UID=[integer]`
+  None
 
 * **Data Params**
 
@@ -25,7 +23,8 @@
   * **Code:** 200 <br />
     **Content:**
     ```
-    {
+    [
+	  {
         "id": "53129",
         "host": "api.outlawdesigns.io",
         "port": "9661",
@@ -38,19 +37,16 @@
         "requestMethod": "GET",
         "query": "/verify/",
         "referrer": "NA"
-    }
+      },
+      ....]
     ```
+
 * **Error Response:**
-
-  * **Code:** 200 <br />
-    **Content:** `{ error : "Invalid UID" }`
-
-  OR
 
   * **Code:** 200 <br />
     **Content:** `{ error : "Access Denied. No Token Present." }`
 
-   OR
+    OR
 
     * **Code:** 200 <br />
       **Content:** `{ error : "Access Denied. Invalid Token." }`
@@ -59,7 +55,7 @@
 
   ```javascript
     $.ajax({
-      url: "/request/53129",
+      url: "/request/",
       dataType: "json",
       type : "GET",
       success : function(r) {
