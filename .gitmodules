@@ -7,3 +7,6 @@
 [submodule "Libs/Api"]
 	path = Libs/Api
 	url = https://github.com/outlawdesigns-io/Api
+[submodule "Libs/cronClientSetup"]
+	path = Libs/cronClientSetup
+	url = https://gist.github.com/outlawstar4761/1b2c86ab67ef92c2926b8da31a415e45
