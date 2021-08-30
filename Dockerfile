@@ -1,6 +1,7 @@
 FROM ulsmith/rpi-raspbian-apache-php
 ENV TZ=America/Chicago
 ADD ./ /var/www/html
+RUN sed -i 's/jessie/stretch/g' /etc/apt/sources.list
 RUN apt-get update && apt-get install cron -y
 RUN chmod -R 0755 /var/www/html
 RUN rm /var/www/html/index.html
