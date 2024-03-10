@@ -4,7 +4,6 @@ require_once __DIR__ . '/Libs/Api/Api.php';
 require_once __DIR__ . '/Models/Host.php';
 require_once __DIR__ . '/Models/Client.php';
 require_once __DIR__ . '/Models/Request.php';
-require_once __DIR__ . '/Models/LogMonitorRun.php';
 
 
 class EndPoint extends API{
