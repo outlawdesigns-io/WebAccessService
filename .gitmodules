@@ -7,7 +7,6 @@
 [submodule "Record"]
 	path = Libs/Record
 	url = https://github.com/outlawdesigns-io/Record
-	branch = version8
 [submodule "Libs/SSLConf"]
 	path = Libs/SSLConf
 	url = https://gist.github.com/outlawstar4761/f542d92168f78640fbb28f26ead562c3
