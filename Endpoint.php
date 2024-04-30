@@ -1,10 +1,9 @@
 <?php
 
 require_once __DIR__ . '/Libs/Api/Api.php';
-require_once __DIR__ . '/Libs/AccessLogParser/Models/Host.php';
-require_once __DIR__ . '/Libs/AccessLogParser/Models/Client.php';
-require_once __DIR__ . '/Libs/AccessLogParser/Models/Request.php';
-require_once __DIR__ . '/Libs/AccessLogParser/Models/LogMonitorRun.php';
+require_once __DIR__ . '/Models/Host.php';
+require_once __DIR__ . '/Models/Client.php';
+require_once __DIR__ . '/Models/Request.php';
 
 
 class EndPoint extends API{

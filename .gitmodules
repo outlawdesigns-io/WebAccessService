@@ -1,12 +1,15 @@
 [submodule "Libs/ContainerSetup"]
 	path = Libs/ContainerSetup
 	url = https://gist.github.com/outlawstar4761/3243b7bcdcd2aa051e85338c403ac0cd
-[submodule "Libs/AccessLogParser"]
-	path = Libs/AccessLogParser
-	url = https://github.com/outlawdesigns-io/AccessLogParser
 [submodule "Libs/Api"]
 	path = Libs/Api
 	url = https://github.com/outlawdesigns-io/Api
-[submodule "Libs/cronClientSetup"]
-	path = Libs/cronClientSetup
-	url = https://gist.github.com/outlawstar4761/1b2c86ab67ef92c2926b8da31a415e45
+[submodule "Record"]
+	path = Libs/Record
+	url = https://github.com/outlawdesigns-io/Record
+[submodule "Libs/SSLConf"]
+	path = Libs/SSLConf
+	url = https://gist.github.com/outlawstar4761/f542d92168f78640fbb28f26ead562c3
+[submodule "Libs\\Record"]
+	path = Libs\\Record
+	url = https://github.com/outlawdesigns-io/Record
