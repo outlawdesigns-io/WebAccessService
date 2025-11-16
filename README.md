@@ -8,13 +8,16 @@ The Web Access service provides programmatic access to [AccessLogParser](https:/
 
 ### Security
 
-This API is accessible only by registered users of [outlawdesigns.io](https://outlawdesigns.io) who present a valid authorization token.
-Authorization tokens should be presented as a value of the `auth_token` header.
+This API is accessible only by registered users of outlawdesigns.io who present a valid Oauth2 access token.
 
 #### Sample Call
 ```
-curl --location --request GET 'https://api.outlawdesigns.io:9500/request/recent/10' \
---header 'auth_token: YOUR_TOKEN' \
+curl --location --request POST 'https://auth.outlawdesigns.io/oauth2/token' \
+--form 'grant_type="client_credentials"' \
+--form 'client_id="$CLIENT_ID"' \
+--form 'client_secret="CLIENT_SECRET"' \
+--form 'audience="https://webaccess.outlawdesigns.io"' \
+--form 'scope="openid, profile, email, roles"'
 ```
 
 ### Reporting performance or availability problems
